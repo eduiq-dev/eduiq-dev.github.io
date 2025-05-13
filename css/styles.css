@@ -13,8 +13,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
     padding: 20px;
     text-align: center;
 }
@@ -26,18 +24,17 @@ h1 {
 
 p {
     font-size: 1.2em;
-    max-width: 600px;
+    max-width: 700px;
     margin-bottom: 30px;
 }
 
 a.button {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 10px 20px;
     background-color: var(--color-accent);
     color: white;
     text-decoration: none;
-    border-radius: 8px;
-    font-size: 1em;
+    border-radius: 6px;
     transition: background-color 0.3s ease;
 }
 
@@ -45,10 +42,51 @@ a.button:hover {
     background-color: #2980b9;
 }
 
+a.button.small {
+    padding: 8px 16px;
+    font-size: 0.95em;
+}
+
+.accordion {
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto;
+    text-align: left;
+}
+
+.accordion-toggle {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    cursor: pointer;
+    text-align: left;
+}
+
+.accordion-content {
+    display: none;
+    background-color: white;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-content.active {
+    display: block;
+}
+
+.app-card {
+    margin-bottom: 20px;
+}
+
 footer {
-    margin-top: 40px;
+    margin-top: 50px;
     font-size: 0.9em;
-    color: #666;
+    color: #777;
 }
 
 @media (max-width: 600px) {
@@ -57,6 +95,10 @@ footer {
     }
 
     p {
+        font-size: 1em;
+    }
+
+    .accordion-toggle {
         font-size: 1em;
     }
 }

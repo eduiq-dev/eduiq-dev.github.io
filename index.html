@@ -1,22 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IQ-Tek | Desarrollador de Apps</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
     <h1>IQ-Tek</h1>
     <p>Somos una marca dedicada al desarrollo de aplicaciones móviles innovadoras, seguras y eficientes.</p>
 
-    <a href="politica.html" class="button">Política de Privacidad</a>
+    <div class="accordion">
+        <button class="accordion-toggle">Nuestras Apps ▾</button>
+        <div class="accordion-content">
+            <div class="app-card">
+                <h2>Pass Wallet</h2>
+                <p>
+                    Una aplicación de almacenamiento seguro que permite guardar contraseñas, usuarios,
+                    números de tarjetas y otros datos sensibles **de forma local** en tu dispositivo.
+                    Toda la información es encriptada con una contraseña general que nunca se sube a internet.
+                    <strong>¡Si olvidas tu clave maestra, nadie podrá acceder a tus datos, ni siquiera
+                        nosotros!</strong>
+                </p>
+                <a href="/pages/politica-passwallet.html" class="button small">Política de Privacidad</a>
+            </div>
+        </div>
+    </div>
 
     <footer>
         © 2025 IQ-Tek. Todos los derechos reservados.
     </footer>
+
+    <script>
+        const toggle = document.querySelector('.accordion-toggle');
+        const content = document.querySelector('.accordion-content');
+        toggle.addEventListener('click', () => {
+            content.classList.toggle('active');
+            toggle.textContent = content.classList.contains('active') ? 'Nuestras Apps ▴' : 'Nuestras Apps ▾';
+        });
+    </script>
 </body>
 
 </html>
