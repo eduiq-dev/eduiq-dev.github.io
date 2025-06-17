@@ -5,35 +5,323 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="6SDudggCMGATuFiwVmtqYX7PwosYnvCX7EMmZtIDrnA" />
-    <title>IQ-Tek | Desarrollador de Apps</title>
+    <title>Eduardo IQ | Desarrollador Full Stack</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <script src="js/acordion.js" defer></script>
+    <script src="js/portfolio.js" defer></script>
 </head>
 
 <body>
-    <h1>IQ-Tek</h1>
-    <p>Somos una marca dedicada al desarrollo de aplicaciones móviles innovadoras, seguras y eficientes.</p>
-
-    <div class="accordion">
-        <button class="accordion-toggle">Nuestras Apps ▾</button>
-        <div class="accordion-content">
-            <div class="app-card">
-                <h2>Pass Wallet</h2>
-                <p>
-                    Una aplicación de almacenamiento seguro que permite guardar contraseñas, usuarios,
-                    números de tarjetas y otros datos sensibles **de forma local** en tu dispositivo.
-                    Toda la información es encriptada con una contraseña general que nunca se sube a internet.
-                    <strong>¡Si olvidas tu clave maestra, nadie podrá acceder a tus datos, ni siquiera
-                        nosotros!</strong>
-                </p>
-                <a href="/pages/politica-passwallet.html" class="button small">Política de Privacidad</a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">Eduardo IQ</a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">Sobre mí</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Habilidades</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Proyectos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contacto</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </div>
-    </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Eduardo IQ</h1>
+            <h2>Desarrollador Full Stack</h2>
+            <p>Especializado en desarrollo web full stack y aplicaciones empresariales, con experiencia en tecnologías modernas y arquitecturas escalables.</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="button primary">Ver Proyectos</a>
+                <a href="#contact" class="button secondary">Contactar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre mí</h2>
+            <div class="about-content">
+                <div class="about-text">                    <p>
+                        Soy un desarrollador full stack apasionado por crear soluciones web robustas y escalables. 
+                        Me especializo en el desarrollo de aplicaciones empresariales, siempre enfocándome en la 
+                        seguridad, rendimiento y mejores prácticas de desarrollo.
+                    </p>
+                    <p>
+                        Con experiencia en tecnologías como Angular, Laravel, Docker y microservicios, disfruto 
+                        construyendo arquitecturas complejas y resolviendo desafíos técnicos que impulsen el 
+                        crecimiento de los negocios.
+                    </p>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <a href="pages/about-detailed.html" class="button secondary">Conoce más sobre mí</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Stack Tecnológico</h2>            <div class="skills-grid">                <div class="skill-category">
+                    <h3>Frontend & Desarrollo Web</h3>
+                    <ul>
+                        <li>Angular</li>
+                        <li>TypeScript/JavaScript</li>
+                        <li>HTML5/CSS3</li>
+                        <li>Bootstrap</li>
+                        <li>SCSS/Sass</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Desarrollo Web</h3>
+                    <ul>
+                        <li>Angular</li>
+                        <li>TypeScript/JavaScript</li>
+                        <li>HTML5/CSS3</li>
+                        <li>Bootstrap</li>
+                    </ul>
+                </div>                <div class="skill-category">
+                    <h3>Backend & Bases de Datos</h3>
+                    <ul>
+                        <li>Laravel (PHP)</li>
+                        <li>.NET C#</li>
+                        <li>Java + Jasper Reports</li>
+                        <li>MySQL/SQL</li>
+                        <li>APIs REST</li>
+                    </ul>
+                </div>                <div class="skill-category">
+                    <h3>DevOps & Herramientas</h3>
+                    <ul>
+                        <li>Docker</li>
+                        <li>Microservicios</li>
+                        <li>Electron + Vite</li>
+                        <li>Mustache Templates</li>
+                        <li>Git/GitHub</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Desarrollo Móvil & Especialidades</h3>
+                    <ul>
+                        <li>Flutter</li>
+                        <li>Android (Java/Kotlin)</li>
+                        <li>Moodle Development</li>
+                        <li>Facturación Electrónica (CFDI)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Proyectos Destacados</h2>            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/portada.jpg" alt="Facturabilidad.com">
+                    </div>
+                    <div class="project-content">                        <h3>Facturabilidad.com</h3>
+                        <p>
+                            Plataforma de facturación electrónica donde contribuyo como desarrollador en diversas áreas. 
+                            Trabajo con Angular, Laravel y tecnologías relacionadas con CFDI.
+                        </p>                        <div class="project-tech">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">CFDI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://facturabilidad.com/" target="_blank" class="button small">Ver Sitio</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/IQTek512.jpg" alt="Validador CFDI Android">
+                    </div>
+                    <div class="project-content">                        <h3>Validador CFDI Android</h3>
+                        <p>
+                            Aplicación móvil para Android desarrollada en Flutter que permite validar CFDIs 
+                            de manera rápida y eficiente desde dispositivos móviles.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">CFDI</span>
+                            <span class="tech-tag">XML Validation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.IslasCruz.validadorCFDI&pcampaignid=web_share" target="_blank" class="button small">Google Play</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
+                            <span>Electron App</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Validador CFDI Desktop</h3>
+                        <p>
+                            Aplicación de escritorio desarrollada con Electron y Vite para validación de CFDIs. 
+                            Herramienta complementaria para Facturabilidad.com con interfaz moderna.
+                        </p>                        <div class="project-tech">
+                            <span class="tech-tag">Electron</span>
+                            <span class="tech-tag">Vite</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">CFDI</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="button small" style="opacity: 0.6; cursor: not-allowed;">Próximamente</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder" style="background: linear-gradient(135deg, #059669, #0d9488);">
+                            <span>.NET Library</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Librería Facturación .NET</h3>
+                        <p>
+                            Librería desarrollada en C# .NET para integrar funcionalidades de timbrado de CFDIs 
+                            en proyectos .NET. Facilita la implementación de facturación electrónica.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">.NET</span>
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">NuGet</span>
+                            <span class="tech-tag">CFDI</span>
+                        </div>                        <div class="project-links">
+                            <span class="button small" style="opacity: 0.6; cursor: not-allowed;">Proyecto Privado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder" style="background: linear-gradient(135deg, #f97316, #ea580c);">
+                            <span>Java Microservice</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Microservicio Generación PDF CFDI</h3>
+                        <p>
+                            Microservicio desarrollado en Java con Jasper Reports para la generación 
+                            de comprobantes impresos de CFDI. Proyecto actual para Facturabilidad.com.
+                        </p>                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Jasper Reports</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Microservices</span>
+                            <span class="tech-tag">PDF Generation</span>
+                            <span class="tech-tag">CFDI</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="button small" style="opacity: 0.6; cursor: not-allowed;">En Desarrollo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder" style="background: linear-gradient(135deg, #dc2626, #ea580c);">
+                            <span>Moodle Theme</span>
+                        </div>
+                    </div>
+                    <div class="project-content">                        <h3>Tema Moodle "Tragaluz"</h3>
+                        <p>
+                            Tema completo para Moodle con diseño moderno y funcionalidades avanzadas. 
+                            Desarrollado con Mustache para plantillas y SCSS para estilos personalizados.
+                        </p>                        <div class="project-tech">
+                            <span class="tech-tag">Moodle</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">Mustache</span>
+                            <span class="tech-tag">Docker</span>                            <span class="tech-tag">SCSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="button small" style="opacity: 0.6; cursor: not-allowed;">Proyecto Privado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/IQTek.jpg" alt="Pass Wallet - IQ-Tek">
+                    </div>
+                    <div class="project-content">
+                        <h3>Pass Wallet - IQ-Tek</h3>
+                        <p>
+                            Aplicación de almacenamiento seguro para contraseñas y datos sensibles. 
+                            Desarrollada bajo la marca IQ-Tek con encriptación local y máxima seguridad.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Encriptación</span>
+                            <span class="tech-tag">SQLite</span>
+                            <span class="tech-tag">Local Storage</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://iq-tek.github.io/index.html" target="_blank" class="button small">Ver Proyecto</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-content">
+                <p>¿Tienes un proyecto en mente? ¡Me encantaría escuchar sobre él!</p>                <div class="contact-info">
+                    <div class="contact-item">
+                        <h4>Email</h4>
+                        <p>eduiq.dev@gmail.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>GitHub Personal</h4>
+                        <p><a href="https://github.com/eduiq-dev" target="_blank">github.com/eduiq-dev</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Organización IQ-Tek</h4>
+                        <p><a href="https://github.com/IQ-Tek" target="_blank">github.com/IQ-Tek</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        © 2025 IQ-Tek. Todos los derechos reservados.
+        <div class="container">
+            <p>© 2025 Eduardo IQ. Todos los derechos reservados.</p>
+        </div>
     </footer>
 </body>
 

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre mí - Eduardo IQ</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+    <style>
+        .detailed-about {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 100px 20px 50px;
+            line-height: 1.8;
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+        
+        .back-button:hover {
+            background: var(--color-primary-dark);
+            transform: translateX(-5px);
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--color-primary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 60px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px var(--color-primary);
+        }
+        
+        .timeline-year {
+            color: var(--color-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .achievement {
+            background: var(--color-bg-alt);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+            border-left: 4px solid var(--color-accent);
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../index.html" class="back-button">
+        ← Volver al inicio
+    </a>
+
+    <div class="detailed-about">
+        <h1>Más sobre mí</h1>
+        
+        <div class="achievement">
+            <h3>🎯 Mi Filosofía de Desarrollo</h3>            <p>
+                Creo firmemente en el desarrollo de software que sea escalable, mantenible y orientado 
+                a resolver problemas empresariales reales. Mi enfoque se centra en arquitecturas robustas 
+                y tecnologías modernas que aporten valor tangible a los negocios.
+            </p>
+        </div>
+
+        <h2>🚀 Mi Trayectoria</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">2025</div>
+                <h4>Desarrollador Independiente</h4>                <p>
+                    Especialización en desarrollo web full stack, especializándome en 
+                    aplicaciones empresariales y arquitecturas modernas basadas en microservicios.
+                </p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">2024</div>
+                <h4>Fundación de IQ-Tek</h4>
+                <p>
+                    Creación de la marca IQ-Tek para desarrollar aplicaciones móviles innovadoras, 
+                    comenzando con Pass Wallet, una app de gestión segura de contraseñas.
+                </p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">2023</div>
+                <h4>Especialización en Seguridad</h4>
+                <p>
+                    Profundización en técnicas de encriptación y seguridad de datos, 
+                    aplicando estos conocimientos en el desarrollo de aplicaciones.
+                </p>
+            </div>
+        </div>
+
+        <div class="achievement">
+            <h3>💡 Lo que me motiva</h3>
+            <p>
+                La tecnología tiene el poder de cambiar vidas. Me motiva especialmente el desarrollo 
+                de aplicaciones que priorizan la privacidad y seguridad del usuario, creando herramientas 
+                que las personas puedan usar con confianza total.
+            </p>
+        </div>
+
+        <h2>🎨 Mi Proceso de Desarrollo</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+            <div class="skill-category">
+                <h4>1. Investigación</h4>
+                <p>Análisis profundo del problema y estudio de las mejores soluciones disponibles.</p>
+            </div>
+            <div class="skill-category">
+                <h4>2. Diseño</h4>
+                <p>Creación de prototipos y wireframes enfocados en la experiencia del usuario.</p>
+            </div>
+            <div class="skill-category">
+                <h4>3. Desarrollo</h4>
+                <p>Codificación limpia y eficiente siguiendo las mejores prácticas de la industria.</p>
+            </div>
+            <div class="skill-category">
+                <h4>4. Testing</h4>
+                <p>Pruebas exhaustivas de funcionalidad, seguridad y rendimiento.</p>
+            </div>
+        </div>
+
+        <div class="achievement">
+            <h3>🔮 Visión a Futuro</h3>
+            <p>
+                Mi objetivo es continuar desarrollando aplicaciones que marquen la diferencia, 
+                manteniéndome siempre actualizado con las últimas tecnologías y tendencias 
+                del desarrollo software. Aspiro a construir productos que no solo sean técnicamente 
+                excellentes, sino que también contribuyan positivamente a la vida de los usuarios.
+            </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="../index.html#contact" class="button primary">
+                ¿Tienes un proyecto en mente? ¡Hablemos!
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
