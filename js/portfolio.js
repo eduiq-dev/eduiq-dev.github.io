@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault();
             const targetId = link.getAttribute('href');
             const targetSection = document.querySelector(targetId);
-            
+
             if (targetSection) {
                 const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
                 window.scrollTo({
@@ -34,12 +34,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });    // Navbar background on scroll
     const navbar = document.querySelector('.navbar');
-    
+
     const updateNavbarBackground = () => {
-        const isDarkTheme = document.documentElement.getAttribute('data-theme') === 'dark' || 
-            (!document.documentElement.getAttribute('data-theme') && 
-             window.matchMedia('(prefers-color-scheme: dark)').matches);
-        
+        const isDarkTheme = document.documentElement.getAttribute('data-theme') === 'dark' ||
+            (!document.documentElement.getAttribute('data-theme') &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches);
+
         if (window.scrollY > 100) {
             if (isDarkTheme) {
                 navbar.style.background = 'rgba(15, 23, 42, 0.98)';
@@ -58,19 +58,19 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     };
-    
+
     window.addEventListener('scroll', updateNavbarBackground);
-    
+
     // Update navbar when theme changes
     const originalApplyTheme = applyTheme;
-    applyTheme = function(theme) {
+    applyTheme = function (theme) {
         originalApplyTheme(theme);
         setTimeout(updateNavbarBackground, 50); // Small delay to ensure theme is applied
     };
 
     // Intersection Observer for active navigation
     const sections = document.querySelectorAll('section[id]');
-    
+
     const observerOptions = {
         rootMargin: '-50% 0px -50% 0px'
     };
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                 });
-                
+
                 // Add active class to current section's nav link
                 const activeLink = document.querySelector(`a[href="#${entry.target.id}"]`);
                 if (activeLink) {
@@ -99,11 +99,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Animate elements on scroll
     const animateOnScroll = () => {
         const elements = document.querySelectorAll('.skill-category, .project-card, .contact-item');
-        
+
         elements.forEach(element => {
             const elementTop = element.getBoundingClientRect().top;
             const elementVisible = 150;
-            
+
             if (elementTop < window.innerHeight - elementVisible) {
                 element.style.opacity = '1';
                 element.style.transform = 'translateY(0)';
@@ -123,17 +123,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setupAnimations();
     animateOnScroll();
-    
+
     window.addEventListener('scroll', animateOnScroll);
 
     // Typing effect for hero section
     const heroTitle = document.querySelector('.hero-content h1');
     const originalText = heroTitle.textContent;
-    
+
     const typeText = (element, text, speed = 100) => {
         element.textContent = '';
         let i = 0;
-        
+
         const timer = setInterval(() => {
             if (i < text.length) {
                 element.textContent += text.charAt(i);
@@ -184,8 +184,8 @@ document.addEventListener("DOMContentLoaded", function () {
         document.head.appendChild(style);
 
         scrollIndicator.addEventListener('click', () => {
-            document.querySelector('#about').scrollIntoView({ 
-                behavior: 'smooth' 
+            document.querySelector('#about').scrollIntoView({
+                behavior: 'smooth'
             });
         });
 
@@ -206,14 +206,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Theme management
     const themeOptions = document.querySelectorAll('.theme-option');
     const html = document.documentElement;
-    
+
     // Get saved theme preference or default to 'system'
     const savedTheme = localStorage.getItem('theme') || 'system';
-    
+
     // Apply theme on page load
     applyTheme(savedTheme);
     updateActiveTheme(savedTheme);
-    
+
     // Theme switcher event listeners
     themeOptions.forEach(option => {
         option.addEventListener('click', () => {
@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem('theme', theme);
         });
     });
-    
+
     function applyTheme(theme) {
         if (theme === 'system') {
             html.removeAttribute('data-theme');
@@ -231,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function () {
             html.setAttribute('data-theme', theme);
         }
     }
-    
+
     function updateActiveTheme(theme) {
         themeOptions.forEach(option => {
             option.classList.remove('active');
@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-    
+
     // Listen for system theme changes
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
         if (localStorage.getItem('theme') === 'system' || !localStorage.getItem('theme')) {

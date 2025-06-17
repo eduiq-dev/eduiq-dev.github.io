@@ -58,7 +58,8 @@
     padding: 8px 12px;
     box-shadow: var(--shadow);
     transition: var(--transition);
-    z-index: 1002; /* Asegurar que esté por encima de otros elementos */
+    z-index: 1002;
+    /* Asegurar que esté por encima de otros elementos */
 }
 
 .theme-switcher:hover {
@@ -146,7 +147,8 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
-    margin: 0 auto; /* Centrar el menú */
+    margin: 0 auto;
+    /* Centrar el menú */
 }
 
 .nav-controls {
@@ -195,7 +197,8 @@ body {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    z-index: 1003; /* Por encima del theme-switcher para que sea clickeable */
+    z-index: 1003;
+    /* Por encima del theme-switcher para que sea clickeable */
 }
 
 .bar {
@@ -534,6 +537,7 @@ footer p {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -563,19 +567,19 @@ footer p {
         backdrop-filter: blur(10px);
         border-bottom: 1px solid #334155;
     }
-    
+
     :root:not([data-theme="light"]) .hero {
         background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     }
-    
+
     :root:not([data-theme="light"]) .project-placeholder {
         color: white !important;
     }
-    
+
     :root:not([data-theme="light"]) .scroll-indicator {
         color: #3b82f6 !important;
     }
-    
+
     /* System dark theme for cards and containers */
     :root:not([data-theme="light"]) .skill-category,
     :root:not([data-theme="light"]) .project-card,
@@ -583,60 +587,60 @@ footer p {
         background: #1e293b;
         border: 1px solid #334155;
     }
-    
+
     :root:not([data-theme="light"]) .project-card:hover,
     :root:not([data-theme="light"]) .skill-category:hover,
     :root:not([data-theme="light"]) .contact-item:hover {
         background: #334155;
         border-color: #94a3b8;
     }
-    
+
     /* System dark theme for accordion content */
     :root:not([data-theme="light"]) .accordion-content {
         background: #1e293b;
         border: 1px solid #334155;
     }
-    
+
     /* System dark theme for footer */
     :root:not([data-theme="light"]) footer {
         background-color: #1e293b;
         border-top: 1px solid #334155;
     }
-    
+
     :root:not([data-theme="light"]) footer p {
         color: #cbd5e1;
     }
-    
+
     /* System dark theme for tech tags */
     :root:not([data-theme="light"]) .tech-tag {
         background-color: #334155;
         color: #f1f5f9;
     }
-    
+
     /* System dark theme for mobile navigation */
     :root:not([data-theme="light"]) .nav-menu {
         background-color: #0f172a;
     }
-    
+
     :root:not([data-theme="light"]) .nav-menu.active {
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
     }
-    
+
     /* System dark theme for hamburger menu */
     :root:not([data-theme="light"]) .bar {
         background-color: #f1f5f9;
     }
-    
+
     /* System dark theme for theme switcher */
     :root:not([data-theme="light"]) .theme-switcher {
         background: #1e293b;
         border-color: #334155;
     }
-    
+
     :root:not([data-theme="light"]) .theme-switcher:hover {
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
     }
-    
+
     :root:not([data-theme="light"]) .theme-option:hover {
         background: #334155;
     }
@@ -649,20 +653,21 @@ footer p {
 /* Responsive breakpoint para pantallas medianas donde se superponen */
 @media (max-width: 1000px) and (min-width: 769px) {
     .nav-menu {
-        gap: 1.5rem; /* Reducir espacio entre elementos del menú */
+        gap: 1.5rem;
+        /* Reducir espacio entre elementos del menú */
     }
-    
+
     .theme-switcher {
         right: 1.5rem;
         padding: 6px 10px;
         gap: 6px;
     }
-    
+
     .theme-option {
         width: 30px;
         height: 30px;
     }
-    
+
     .theme-option svg {
         width: 16px;
         height: 16px;
@@ -681,8 +686,10 @@ footer p {
         transition: 0.3s;
         box-shadow: var(--shadow);
         padding: 2rem 0;
-        z-index: 999; /* Menor que el theme-switcher */
-        margin: 0; /* Reset margin para móviles */
+        z-index: 999;
+        /* Menor que el theme-switcher */
+        margin: 0;
+        /* Reset margin para móviles */
     }
 
     .nav-menu.active {
@@ -709,12 +716,12 @@ footer p {
         padding: 6px 8px;
         gap: 6px;
     }
-    
+
     .theme-option {
         width: 28px;
         height: 28px;
     }
-    
+
     .theme-option svg {
         width: 16px;
         height: 16px;
@@ -724,11 +731,13 @@ footer p {
 /* Breakpoint para pantallas más estrechas donde necesitamos reducir más el gap */
 @media (max-width: 900px) and (min-width: 769px) {
     .nav-menu {
-        gap: 1rem; /* Reducir más el espacio */
+        gap: 1rem;
+        /* Reducir más el espacio */
     }
-    
+
     .nav-link {
-        font-size: 0.9rem; /* Texto ligeramente más pequeño */
+        font-size: 0.9rem;
+        /* Texto ligeramente más pequeño */
     }
 }
 
@@ -741,12 +750,12 @@ footer p {
         padding: 4px 6px;
         gap: 4px;
     }
-    
+
     .theme-option {
         width: 24px;
         height: 24px;
     }
-    
+
     .theme-option svg {
         width: 12px;
         height: 12px;
