@@ -257,6 +257,17 @@ body {
     font-weight: 600;
     transition: var(--transition);
     border: 2px solid transparent;
+    background-color: var(--color-primary);
+    color: white;
+    cursor: pointer;
+    position: relative;
+    z-index: 10; /* Asegurar que esté por encima de pseudo-elementos */
+}
+
+.button:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 .button.primary {
@@ -394,6 +405,7 @@ section {
     opacity: 0;
     transition: var(--transition);
     border-radius: var(--border-radius);
+    pointer-events: none; /* Permitir que los clicks pasen a través */
 }
 
 .project-card {
@@ -759,5 +771,73 @@ footer p {
     .theme-option svg {
         width: 12px;
         height: 12px;
+    }
+}
+
+/* Logos específicos para proyectos */
+.facturabilidad-bg {
+    background: #034e85;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+}
+
+.facturabilidad-bg img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Estilos específicos para logos de validador y productos IQ-Tek */
+.validador-logo {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+}
+
+.validador-logo img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    width: auto;
+    height: auto;
+}
+
+/* Borde específico solo para validador Android */
+.validador-android img {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.validador-android img:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(1.02);
+}
+
+/* Estilos específicos para modo oscuro - solo validador Android */
+[data-theme="dark"] .validador-android img {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .validador-android img:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .validador-android img {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    :root:not([data-theme="light"]) .validador-android img:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     }
 }
