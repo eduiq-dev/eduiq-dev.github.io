@@ -32,20 +32,41 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             }
         });
-    });
-
-    // Navbar background on scroll
+    });    // Navbar background on scroll
     const navbar = document.querySelector('.navbar');
     
-    window.addEventListener('scroll', () => {
+    const updateNavbarBackground = () => {
+        const isDarkTheme = document.documentElement.getAttribute('data-theme') === 'dark' || 
+            (!document.documentElement.getAttribute('data-theme') && 
+             window.matchMedia('(prefers-color-scheme: dark)').matches);
+        
         if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.borderBottom = '1px solid #e2e8f0';
+            if (isDarkTheme) {
+                navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+                navbar.style.borderBottom = '1px solid #334155';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.borderBottom = '1px solid #e2e8f0';
+            }
         } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.borderBottom = '1px solid transparent';
+            if (isDarkTheme) {
+                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+                navbar.style.borderBottom = '1px solid transparent';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.borderBottom = '1px solid transparent';
+            }
         }
-    });
+    };
+    
+    window.addEventListener('scroll', updateNavbarBackground);
+    
+    // Update navbar when theme changes
+    const originalApplyTheme = applyTheme;
+    applyTheme = function(theme) {
+        originalApplyTheme(theme);
+        setTimeout(updateNavbarBackground, 50); // Small delay to ensure theme is applied
+    };
 
     // Intersection Observer for active navigation
     const sections = document.querySelectorAll('section[id]');
@@ -181,4 +202,50 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     createScrollIndicator();
+
+    // Theme management
+    const themeOptions = document.querySelectorAll('.theme-option');
+    const html = document.documentElement;
+    
+    // Get saved theme preference or default to 'system'
+    const savedTheme = localStorage.getItem('theme') || 'system';
+    
+    // Apply theme on page load
+    applyTheme(savedTheme);
+    updateActiveTheme(savedTheme);
+    
+    // Theme switcher event listeners
+    themeOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            const theme = option.getAttribute('data-theme');
+            applyTheme(theme);
+            updateActiveTheme(theme);
+            localStorage.setItem('theme', theme);
+        });
+    });
+    
+    function applyTheme(theme) {
+        if (theme === 'system') {
+            html.removeAttribute('data-theme');
+        } else {
+            html.setAttribute('data-theme', theme);
+        }
+    }
+    
+    function updateActiveTheme(theme) {
+        themeOptions.forEach(option => {
+            option.classList.remove('active');
+            if (option.getAttribute('data-theme') === theme) {
+                option.classList.add('active');
+            }
+        });
+    }
+    
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (localStorage.getItem('theme') === 'system' || !localStorage.getItem('theme')) {
+            // Re-apply system theme if user hasn't manually selected a theme
+            applyTheme('system');
+        }
+    });
 });

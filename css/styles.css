@@ -15,14 +15,88 @@
     --border-radius: 8px;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Dark theme variables */
+[data-theme="dark"] {
+    --color-bg: #0f172a;
+    --color-bg-alt: #1e293b;
+    --color-primary: #3b82f6;
+    --color-primary-dark: #2563eb;
+    --color-secondary: #94a3b8;
+    --color-text: #f1f5f9;
+    --color-text-light: #cbd5e1;
+    --color-border: #334155;
+    --color-accent: #10b981;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
 }
 
-html {
-    scroll-behavior: smooth;
+/* Auto theme detection */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --color-bg: #0f172a;
+        --color-bg-alt: #1e293b;
+        --color-primary: #3b82f6;
+        --color-primary-dark: #2563eb;
+        --color-secondary: #94a3b8;
+        --color-text: #f1f5f9;
+        --color-text-light: #cbd5e1;
+        --color-border: #334155;
+        --color-accent: #10b981;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Theme switcher styles */
+.theme-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 25px;
+    padding: 8px 12px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    z-index: 1002; /* Asegurar que esté por encima de otros elementos */
+}
+
+.theme-switcher:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.theme-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    background: transparent;
+}
+
+.theme-option:hover {
+    background: var(--color-bg-alt);
+}
+
+.theme-option.active {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.theme-option svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+/* Smooth transition for theme changes */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 body {
@@ -57,6 +131,7 @@ body {
     padding: 1rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
 }
 
 .nav-logo {
@@ -64,12 +139,21 @@ body {
     font-weight: 700;
     color: var(--color-primary);
     text-decoration: none;
+    flex-shrink: 0;
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
     gap: 2rem;
+    margin: 0 auto; /* Centrar el menú */
+}
+
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
 }
 
 .nav-link {
@@ -111,6 +195,7 @@ body {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    z-index: 1003; /* Por encima del theme-switcher para que sea clickeable */
 }
 
 .bar {
@@ -461,43 +546,143 @@ footer p {
 
 /* Enhanced contact section */
 .contact {
-    background: linear-gradient(135deg, var(--color-bg-alt) 0%, #f1f5f9 100%);
+    background: linear-gradient(135deg, var(--color-bg-alt) 0%, var(--color-bg-alt) 100%);
 }
 
-/* Improved button animations */
-.button {
-    position: relative;
-    overflow: hidden;
+/* Dark theme specific improvements */
+[data-theme="dark"] .navbar {
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border);
 }
 
-.button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s;
+/* System dark theme support */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .navbar {
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #334155;
+    }
+    
+    :root:not([data-theme="light"]) .hero {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    }
+    
+    :root:not([data-theme="light"]) .project-placeholder {
+        color: white !important;
+    }
+    
+    :root:not([data-theme="light"]) .scroll-indicator {
+        color: #3b82f6 !important;
+    }
+    
+    /* System dark theme for cards and containers */
+    :root:not([data-theme="light"]) .skill-category,
+    :root:not([data-theme="light"]) .project-card,
+    :root:not([data-theme="light"]) .contact-item {
+        background: #1e293b;
+        border: 1px solid #334155;
+    }
+    
+    :root:not([data-theme="light"]) .project-card:hover,
+    :root:not([data-theme="light"]) .skill-category:hover,
+    :root:not([data-theme="light"]) .contact-item:hover {
+        background: #334155;
+        border-color: #94a3b8;
+    }
+    
+    /* System dark theme for accordion content */
+    :root:not([data-theme="light"]) .accordion-content {
+        background: #1e293b;
+        border: 1px solid #334155;
+    }
+    
+    /* System dark theme for footer */
+    :root:not([data-theme="light"]) footer {
+        background-color: #1e293b;
+        border-top: 1px solid #334155;
+    }
+    
+    :root:not([data-theme="light"]) footer p {
+        color: #cbd5e1;
+    }
+    
+    /* System dark theme for tech tags */
+    :root:not([data-theme="light"]) .tech-tag {
+        background-color: #334155;
+        color: #f1f5f9;
+    }
+    
+    /* System dark theme for mobile navigation */
+    :root:not([data-theme="light"]) .nav-menu {
+        background-color: #0f172a;
+    }
+    
+    :root:not([data-theme="light"]) .nav-menu.active {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* System dark theme for hamburger menu */
+    :root:not([data-theme="light"]) .bar {
+        background-color: #f1f5f9;
+    }
+    
+    /* System dark theme for theme switcher */
+    :root:not([data-theme="light"]) .theme-switcher {
+        background: #1e293b;
+        border-color: #334155;
+    }
+    
+    :root:not([data-theme="light"]) .theme-switcher:hover {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+    }
+    
+    :root:not([data-theme="light"]) .theme-option:hover {
+        background: #334155;
+    }
 }
 
-.button:hover::before {
-    left: 100%;
-}
+/* Manual dark theme styles (keep existing) */
+/* ...existing code... */
 
 /* Responsive Design */
+/* Responsive breakpoint para pantallas medianas donde se superponen */
+@media (max-width: 1000px) and (min-width: 769px) {
+    .nav-menu {
+        gap: 1.5rem; /* Reducir espacio entre elementos del menú */
+    }
+    
+    .theme-switcher {
+        right: 1.5rem;
+        padding: 6px 10px;
+        gap: 6px;
+    }
+    
+    .theme-option {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .theme-option svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed;
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: white;
+        background-color: var(--color-bg);
         width: 100%;
         text-align: center;
         transition: 0.3s;
         box-shadow: var(--shadow);
         padding: 2rem 0;
+        z-index: 999; /* Menor que el theme-switcher */
+        margin: 0; /* Reset margin para móviles */
     }
 
     .nav-menu.active {
@@ -520,59 +705,50 @@ footer p {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    .hero-content h1 {
-        font-size: 2.5rem;
+    .theme-switcher {
+        padding: 6px 8px;
+        gap: 6px;
     }
-
-    .hero-content h2 {
-        font-size: 1.3rem;
+    
+    .theme-option {
+        width: 28px;
+        height: 28px;
     }
-
-    .hero-content p {
-        font-size: 1rem;
+    
+    .theme-option svg {
+        width: 16px;
+        height: 16px;
     }
+}
 
-    .section-title {
-        font-size: 2rem;
+/* Breakpoint para pantallas más estrechas donde necesitamos reducir más el gap */
+@media (max-width: 900px) and (min-width: 769px) {
+    .nav-menu {
+        gap: 1rem; /* Reducir más el espacio */
     }
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .button {
-        width: 200px;
-        text-align: center;
-    }
-
-    section {
-        padding: 60px 0;
+    
+    .nav-link {
+        font-size: 0.9rem; /* Texto ligeramente más pequeño */
     }
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
-    }
-
     .nav-container {
         padding: 1rem 1rem;
     }
 
-    .hero-content h1 {
-        font-size: 2rem;
+    .theme-switcher {
+        padding: 4px 6px;
+        gap: 4px;
     }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
+    
+    .theme-option {
+        width: 24px;
+        height: 24px;
     }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-info {
-        grid-template-columns: 1fr;
+    
+    .theme-option svg {
+        width: 12px;
+        height: 12px;
     }
 }

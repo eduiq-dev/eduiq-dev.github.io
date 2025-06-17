@@ -7,6 +7,15 @@
     <title>Sobre mí - Eduardo IQ</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+    <script>
+        // Apply theme immediately to prevent flash
+        const savedTheme = localStorage.getItem('theme') || 'system';
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        } else if (savedTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    </script>
     <style>
         .detailed-about {
             max-width: 800px;
@@ -93,6 +102,28 @@
         ← Volver al inicio
     </a>
 
+    <!-- Theme Switcher -->
+    <div class="theme-switcher">
+        <div class="theme-option" data-theme="light" title="Tema Claro">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 17.5C15.0376 17.5 17.5 15.0376 17.5 12C17.5 8.96243 15.0376 6.5 12 6.5C8.96243 6.5 6.5 8.96243 6.5 12C6.5 15.0376 8.96243 17.5 12 17.5Z"/>
+                <path d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22"/>
+            </svg>
+        </div>
+        <div class="theme-option" data-theme="dark" title="Tema Oscuro">
+            <svg viewBox="0 0 24 24">
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79Z"/>
+            </svg>
+        </div>
+        <div class="theme-option" data-theme="system" title="Tema del Sistema">
+            <svg viewBox="0 0 24 24">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+        </div>
+    </div>
+
     <div class="detailed-about">
         <h1>Más sobre mí</h1>
         
@@ -175,9 +206,50 @@
         <div style="text-align: center; margin-top: 3rem;">
             <a href="../index.html#contact" class="button primary">
                 ¿Tienes un proyecto en mente? ¡Hablemos!
-            </a>
-        </div>
+            </a>        </div>
     </div>
+
+    <script>
+        // Theme management for about-detailed page
+        document.addEventListener("DOMContentLoaded", function () {
+            const themeOptions = document.querySelectorAll('.theme-option');
+            const html = document.documentElement;
+            
+            // Get saved theme preference or default to 'system'
+            const savedTheme = localStorage.getItem('theme') || 'system';
+            
+            // Apply theme on page load
+            applyTheme(savedTheme);
+            updateActiveTheme(savedTheme);
+            
+            // Theme switcher event listeners
+            themeOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    const theme = option.getAttribute('data-theme');
+                    applyTheme(theme);
+                    updateActiveTheme(theme);
+                    localStorage.setItem('theme', theme);
+                });
+            });
+            
+            function applyTheme(theme) {
+                if (theme === 'system') {
+                    html.removeAttribute('data-theme');
+                } else {
+                    html.setAttribute('data-theme', theme);
+                }
+            }
+            
+            function updateActiveTheme(theme) {
+                themeOptions.forEach(option => {
+                    option.classList.remove('active');
+                    if (option.getAttribute('data-theme') === theme) {
+                        option.classList.add('active');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -4,15 +4,22 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google-site-verification" content="6SDudggCMGATuFiwVmtqYX7PwosYnvCX7EMmZtIDrnA" />
-    <title>Eduardo IQ | Desarrollador Full Stack</title>
+    <meta name="google-site-verification" content="6SDudggCMGATuFiwVmtqYX7PwosYnvCX7EMmZtIDrnA" />    <title>Eduardo IQ | Desarrollador Full Stack</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <script>
+        // Apply theme immediately to prevent flash
+        const savedTheme = localStorage.getItem('theme') || 'system';
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        } else if (savedTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    </script>
     <script src="js/portfolio.js" defer></script>
 </head>
 
-<body>
-    <!-- Navigation -->
+<body>    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#home" class="nav-logo">Eduardo IQ</a>
@@ -33,15 +40,38 @@
                     <a href="#contact" class="nav-link">Contacto</a>
                 </li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            
+            <div class="nav-controls">
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                
+                <!-- Theme Switcher -->
+                <div class="theme-switcher">
+                    <div class="theme-option" data-theme="light" title="Tema Claro">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 17.5C15.0376 17.5 17.5 15.0376 17.5 12C17.5 8.96243 15.0376 6.5 12 6.5C8.96243 6.5 6.5 8.96243 6.5 12C6.5 15.0376 8.96243 17.5 12 17.5Z"/>
+                            <path d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22"/>
+                        </svg>
+                    </div>
+                    <div class="theme-option" data-theme="dark" title="Tema Oscuro">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79Z"/>
+                        </svg>
+                    </div>
+                    <div class="theme-option" data-theme="system" title="Tema del Sistema">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
+    </nav>    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Eduardo IQ</h1>
